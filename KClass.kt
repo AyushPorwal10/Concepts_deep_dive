@@ -46,3 +46,27 @@ data class Person(val name: String, var age: Int) {
     }
 }
 
+
+
+Here KClass will shine (Here we can't user "inline fun <refied T > because type is not known at Compile Time so it can't inline the actual type)
+
+{
+  "status": "success",
+  "itemType": "BOOK",
+  "data": {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "pageCount": 310
+  }
+}
+
+{
+  "status": "success",
+  "itemType": "MOVIE",
+  "data": {
+    "title": "The Lord of the Rings",
+    "director": "Peter Jackson",
+    "runtimeMinutes": 201
+  }
+}
+
