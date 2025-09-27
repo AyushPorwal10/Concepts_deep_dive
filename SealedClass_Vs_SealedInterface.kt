@@ -17,4 +17,3 @@ Using above feature power ->
 Sealed classes are often used in conjunction with when expressions to provide exhaustive pattern matching.
 
 
-Go throught it -> https://medium.com/@manuchekhrdev/sealed-class-vs-sealed-interface-in-kotlin-47222335040a
