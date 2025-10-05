@@ -46,3 +46,54 @@ class EvaluationVisitor : Visitor {
 
 // How it scales
 Same we can do for PrintVisitor, and other
+
+
+// Below code is perfect way to get advantages and disadvantage of Visitor Pattern
+fun main() {
+    val kotlin = "🙂"
+    println(kotlin)
+}
+
+
+interface Expression {
+    fun <T> accept(visitor : Visitor<T>) : T
+}
+
+
+interface Visitor<T>{
+    fun visitNum(num : Number) : T
+    fun visitSum(sum : Sum) : T
+    
+    // in future if i have to add mul than i have to modify all the implementation of visitor which is hard to do so this is disadvantage
+    
+//     fun visitMul(mul : Mul) : Int
+}
+
+// class Mul(val mul : Int) : Expression{
+//     override fun accept(visitor : Visitor) : Int{
+//         return visitor.visitMul(this)
+//     }
+// }
+
+class Sum(val sum : Int) : Expression{
+    override fun <T> accept(visitor : Visitor<T>) : T{
+        return visitor.visitSum(this)
+    }
+}
+
+class Number(val num : Int) : Expression {
+    override fun <T> accept(visitor : Visitor<T>) : T{
+        return visitor.visitNum(this)
+    }
+}
+
+// similar to PrintVisitor any other can provides its own implementation without changing above code 
+// this ensure Open/Close Principle because my code open for extension (new feature) and closed for modifications
+class PrintVisitor : Visitor<String>{
+    override fun visitNum(num : Number) : String {
+        return num.num.toString()
+    }
+    override fun visitSum(sum : Sum) : String {
+        return sum.sum.toString()
+    }
+}
